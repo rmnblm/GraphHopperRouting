@@ -3,10 +3,10 @@ import CoreLocation
 open class RoutePath {
 
     open let points: [RoutePoint]
-    open let distance: CLLocationDistance // in meter
-    open let time: Int // in ms
-    open let ascend: CLLocationDistance // in meter
-    open let descend: CLLocationDistance // in meter
+    open let distance: CLLocationDistance
+    open let time: Int
+    open let ascend: CLLocationDistance
+    open let descend: CLLocationDistance
 
     internal init(_ points: [RoutePoint], distance: CLLocationDistance, time: Int, ascend: CLLocationDistance, descend: CLLocationDistance) {
         self.points = points

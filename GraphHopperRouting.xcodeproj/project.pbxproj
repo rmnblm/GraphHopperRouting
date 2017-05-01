@@ -8,13 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3053826A1E9BC33600CDC79A /* GHRoutePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305382691E9BC33600CDC79A /* GHRoutePoint.swift */; };
-		30BDE43B1E94328100C0DB04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BDE43A1E94328100C0DB04 /* AppDelegate.swift */; };
-		30BDE43D1E94328100C0DB04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BDE43C1E94328100C0DB04 /* ViewController.swift */; };
-		30BDE4401E94328100C0DB04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30BDE43E1E94328100C0DB04 /* Main.storyboard */; };
-		30BDE4421E94328100C0DB04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30BDE4411E94328100C0DB04 /* Assets.xcassets */; };
-		30BDE4451E94328100C0DB04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30BDE4431E94328100C0DB04 /* LaunchScreen.storyboard */; };
-		30BDE44A1E9432B400C0DB04 /* GraphHopperRouting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DEA4821E94064100D2A137 /* GraphHopperRouting.framework */; };
-		30BDE44B1E9432B400C0DB04 /* GraphHopperRouting.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 30DEA4821E94064100D2A137 /* GraphHopperRouting.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		30BDE4521E9442AB00C0DB04 /* GHDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BDE4511E9442AB00C0DB04 /* GHDecoder.swift */; };
 		30DEA48C1E94064100D2A137 /* GraphHopperRouting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DEA4821E94064100D2A137 /* GraphHopperRouting.framework */; };
 		30DEA4911E94064100D2A137 /* GraphHopperRoutingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DEA4901E94064100D2A137 /* GraphHopperRoutingTests.swift */; };
@@ -24,13 +17,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		30BDE44C1E9432B400C0DB04 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 30DEA4791E94064100D2A137 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 30DEA4811E94064100D2A137;
-			remoteInfo = GraphHopperRouting;
-		};
 		30DEA48D1E94064100D2A137 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 30DEA4791E94064100D2A137 /* Project object */;
@@ -40,29 +26,9 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		30BDE44E1E9432B400C0DB04 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				30BDE44B1E9432B400C0DB04 /* GraphHopperRouting.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
+		3039D3BA1EB75B7E00B8703F /* GraphHopperRouting.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = GraphHopperRouting.playground; sourceTree = "<group>"; };
 		305382691E9BC33600CDC79A /* GHRoutePoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHRoutePoint.swift; sourceTree = "<group>"; };
-		30BDE4381E94328100C0DB04 /* GraphHopperRoutingExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraphHopperRoutingExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		30BDE43A1E94328100C0DB04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		30BDE43C1E94328100C0DB04 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		30BDE43F1E94328100C0DB04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		30BDE4411E94328100C0DB04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		30BDE4441E94328100C0DB04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		30BDE4461E94328100C0DB04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30BDE4511E9442AB00C0DB04 /* GHDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHDecoder.swift; sourceTree = "<group>"; };
 		30DEA4821E94064100D2A137 /* GraphHopperRouting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GraphHopperRouting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		30DEA4861E94064100D2A137 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -75,14 +41,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		30BDE4351E94328100C0DB04 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				30BDE44A1E9432B400C0DB04 /* GraphHopperRouting.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		30DEA47E1E94064100D2A137 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -101,25 +59,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		30BDE4391E94328100C0DB04 /* GraphHopperRoutingExample */ = {
-			isa = PBXGroup;
-			children = (
-				30BDE43A1E94328100C0DB04 /* AppDelegate.swift */,
-				30BDE43C1E94328100C0DB04 /* ViewController.swift */,
-				30BDE43E1E94328100C0DB04 /* Main.storyboard */,
-				30BDE4411E94328100C0DB04 /* Assets.xcassets */,
-				30BDE4431E94328100C0DB04 /* LaunchScreen.storyboard */,
-				30BDE4461E94328100C0DB04 /* Info.plist */,
-			);
-			path = GraphHopperRoutingExample;
-			sourceTree = "<group>";
-		};
 		30DEA4781E94064100D2A137 = {
 			isa = PBXGroup;
 			children = (
+				3039D3BA1EB75B7E00B8703F /* GraphHopperRouting.playground */,
 				30DEA4841E94064100D2A137 /* GraphHopperRouting */,
 				30DEA48F1E94064100D2A137 /* GraphHopperRoutingTests */,
-				30BDE4391E94328100C0DB04 /* GraphHopperRoutingExample */,
 				30DEA4831E94064100D2A137 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -129,7 +74,6 @@
 			children = (
 				30DEA4821E94064100D2A137 /* GraphHopperRouting.framework */,
 				30DEA48B1E94064100D2A137 /* GraphHopperRoutingTests.xctest */,
-				30BDE4381E94328100C0DB04 /* GraphHopperRoutingExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -159,25 +103,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		30BDE4371E94328100C0DB04 /* GraphHopperRoutingExample */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 30BDE4471E94328100C0DB04 /* Build configuration list for PBXNativeTarget "GraphHopperRoutingExample" */;
-			buildPhases = (
-				30BDE4341E94328100C0DB04 /* Sources */,
-				30BDE4351E94328100C0DB04 /* Frameworks */,
-				30BDE4361E94328100C0DB04 /* Resources */,
-				30BDE44E1E9432B400C0DB04 /* Embed Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				30BDE44D1E9432B400C0DB04 /* PBXTargetDependency */,
-			);
-			name = GraphHopperRoutingExample;
-			productName = GraphHopperRoutingExample;
-			productReference = 30BDE4381E94328100C0DB04 /* GraphHopperRoutingExample.app */;
-			productType = "com.apple.product-type.application";
-		};
 		30DEA4811E94064100D2A137 /* GraphHopperRouting */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 30DEA4961E94064100D2A137 /* Build configuration list for PBXNativeTarget "GraphHopperRouting" */;
@@ -223,11 +148,6 @@
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = rmnblm;
 				TargetAttributes = {
-					30BDE4371E94328100C0DB04 = {
-						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = LX2LWMTL8R;
-						ProvisioningStyle = Automatic;
-					};
 					30DEA4811E94064100D2A137 = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = LX2LWMTL8R;
@@ -256,22 +176,11 @@
 			targets = (
 				30DEA4811E94064100D2A137 /* GraphHopperRouting */,
 				30DEA48A1E94064100D2A137 /* GraphHopperRoutingTests */,
-				30BDE4371E94328100C0DB04 /* GraphHopperRoutingExample */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		30BDE4361E94328100C0DB04 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				30BDE4451E94328100C0DB04 /* LaunchScreen.storyboard in Resources */,
-				30BDE4421E94328100C0DB04 /* Assets.xcassets in Resources */,
-				30BDE4401E94328100C0DB04 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		30DEA4801E94064100D2A137 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -289,15 +198,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		30BDE4341E94328100C0DB04 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				30BDE43D1E94328100C0DB04 /* ViewController.swift in Sources */,
-				30BDE43B1E94328100C0DB04 /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		30DEA47D1E94064100D2A137 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -321,11 +221,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		30BDE44D1E9432B400C0DB04 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 30DEA4811E94064100D2A137 /* GraphHopperRouting */;
-			targetProxy = 30BDE44C1E9432B400C0DB04 /* PBXContainerItemProxy */;
-		};
 		30DEA48E1E94064100D2A137 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 30DEA4811E94064100D2A137 /* GraphHopperRouting */;
@@ -333,54 +228,7 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		30BDE43E1E94328100C0DB04 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				30BDE43F1E94328100C0DB04 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		30BDE4431E94328100C0DB04 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				30BDE4441E94328100C0DB04 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		30BDE4481E94328100C0DB04 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = LX2LWMTL8R;
-				INFOPLIST_FILE = GraphHopperRoutingExample/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.rmnblm.GraphHopperRoutingExample;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		30BDE4491E94328100C0DB04 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = LX2LWMTL8R;
-				INFOPLIST_FILE = GraphHopperRoutingExample/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.rmnblm.GraphHopperRoutingExample;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
 		30DEA4941E94064100D2A137 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -552,15 +400,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		30BDE4471E94328100C0DB04 /* Build configuration list for PBXNativeTarget "GraphHopperRoutingExample" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				30BDE4481E94328100C0DB04 /* Debug */,
-				30BDE4491E94328100C0DB04 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		30DEA47C1E94064100D2A137 /* Build configuration list for PBXProject "GraphHopperRouting" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
