@@ -143,35 +143,19 @@ open class Routing: NSObject {
 }
 
 extension HTTPURLResponse {
-    var creditLimit: UInt? {
-        guard let limit = allHeaderFields["X-RateLimit-Limit"] as? String else {
-            return nil
-        }
-
-        return UInt(limit)
+    var creditLimit: Int? {
+        return allHeaderFields["X-RateLimit-Limit"] as? Int
     }
 
-    var remainingCredits: UInt? {
-        guard let credits = allHeaderFields["X-RateLimit-Remaining"] as? String else {
-            return nil
-        }
-
-        return UInt(credits)
+    var remainingCredits: Int? {
+        return allHeaderFields["X-RateLimit-Remaining"] as? Int
     }
 
     var timeUntilReset: TimeInterval? {
-        guard let time = allHeaderFields["X-RateLimit-Reset"] as? String else {
-            return nil
-        }
-
-        return TimeInterval(time)
+        return allHeaderFields["X-RateLimit-Reset"] as? TimeInterval
     }
 
     var creditCosts: Double? {
-        guard let costs = allHeaderFields["X-RateLimit-Credits"] as? String else {
-            return nil
-        }
-        
-        return Double(costs)
+        return allHeaderFields["X-RateLimit-Credits"] as? Double
     }
 }
