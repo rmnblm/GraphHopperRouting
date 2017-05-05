@@ -8,7 +8,7 @@ let points = [
     CLLocationCoordinate2D(latitude: 52.545669, longitude: 13.359375),
     CLLocationCoordinate2D(latitude: 52.543164, longitude: 13.399887)
 ]
-let options = RouteOptions(points)
+let options = RouteOptions(points: points)
 options.elevation = true
 _ = routing.calculate(options, completionHandler: { (paths, error) in
     if let error = error {

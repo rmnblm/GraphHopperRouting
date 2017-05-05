@@ -12,7 +12,7 @@ open class RoutePath {
     }
 
     public convenience init?(json: JSONDictionary, withOptions options: RouteOptions) {
-        self.init(json, elevation: options.elevation, encoded: options.encodePoints)
+        self.init(json, elevation: options.elevation ?? false, encoded: options.encodePoints)
     }
 
     open lazy var instructions: [Instruction] = {

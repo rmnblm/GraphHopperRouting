@@ -5,7 +5,7 @@ public typealias JSONDictionary = [String: Any]
 let defaultAccessToken = Bundle.main.object(forInfoDictionaryKey: "GraphHopperAccessToken") as? String
 let defaultApiVersion = "1"
 
-enum NetworkError: Error {
+public enum NetworkError: Error {
     case InvalidRequest
     case Authentication
     case InvalidParameters
@@ -15,15 +15,33 @@ enum NetworkError: Error {
     case Unknown
 }
 
+/**
+
+ */
 open class Routing: NSObject {
 
+    /**
+     A closure (block) to be called when a directions request is complete.
+
+     - parameter paths An array of possible paths
+        If the request was canceled or there was an error obtaining the routes, this parameter may be `nil`.
+     - parameter error The error that occurred, or `nil` if the paths were obtained successfully.
+     */
     public typealias CompletionHandler = (_ paths: [RoutePath]?, _ error: Error?) -> Void
-    
+
+    /**
+     The shared routing object.
+     
+     If this object is used, the GraphHopper Access Token must be specified in the `Info.plist` with the key "GraphHopperAccessToken".
+     */
     open static let shared = Routing(accessToken: nil)
 
     internal let accessToken: String
     internal let baseURL: URL
 
+    /**
+     
+     */
     public init(accessToken: String?, apiVersion: String? = nil) {
         guard let token = accessToken ?? defaultAccessToken else {
             fatalError("You must provide an access token in order to use the GraphHopper Routing API.")
@@ -38,6 +56,9 @@ open class Routing: NSObject {
         self.baseURL = baseURLComponents.url!
     }
 
+    /**
+     
+     */
     open func calculate(_ options: RouteOptions, completionHandler: @escaping CompletionHandler) -> URLSessionDataTask {
         let url = urlForCalculating(options)
         let task = dataTask(withURL: url, completionHandler: { (json) in
@@ -50,7 +71,7 @@ open class Routing: NSObject {
         return task
     }
 
-    fileprivate func dataTask(
+    private func dataTask(
         withURL url: URL,
         completionHandler: @escaping (_ json: JSONDictionary) -> Void,
         errorHandler: @escaping (_ error: Error) -> Void) -> URLSessionDataTask {
@@ -93,7 +114,7 @@ open class Routing: NSObject {
         })
     }
 
-    open func urlForCalculating(_ options: RouteOptions) -> URL {
+    private func urlForCalculating(_ options: RouteOptions) -> URL {
         let params = options.params + [
             URLQueryItem(name: "key", value: accessToken),
         ]
@@ -103,7 +124,7 @@ open class Routing: NSObject {
         return components.url!
     }
 
-    fileprivate func parseError(fromStatusCode code: Int) -> Error {
+    private func parseError(fromStatusCode code: Int) -> Error {
         switch code {
         case 400: return NetworkError.InvalidRequest
         case 401: return NetworkError.Authentication

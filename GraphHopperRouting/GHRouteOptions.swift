@@ -1,17 +1,59 @@
 import CoreLocation
 
+/**
+ A `RouteOptions` object is used to specify options when querying the GraphHopper Directions API.
+ */
 open class RouteOptions: NSObject {
+    /**
+     Specifiy multiple points for which the route should be calculated.
+     */
     public let points: [CLLocationCoordinate2D]
-    public var locale: String?
-    public var optimize: Bool?
-    public var instructions: Bool?
-    public var vehicle: VehicleType?
-    public var elevation: Bool?
-    public var encodePoints: Bool?
-    public var calculatePoints: Bool?
-    public var debug: Bool?
 
-    public init(_ points: [CLLocationCoordinate2D]) {
+    /** 
+     If `true` the coordinates will be encoded as string leading to less bandwith usage.
+     */
+    public var encodePoints: Bool = true
+
+    /**
+     The locale of the resulting turn instructions. E.g. pt_PT for Portuguese or de for German.
+     
+     Uses the current language code by default.
+     */
+    public var locale: String? = Locale.current.languageCode
+
+    /**
+     If `false` the order of the locations will be identical to the order of the point parameters. If you have more than 2 points you can set this optimize parameter to true and the points will be sorted regarding the minimum overall time - e.g. suiteable for sightseeing tours or salesman.
+     */
+    public var optimize: Bool?
+
+    /**
+     If instructions should be calculated and returned
+     */
+    public var instructions: Bool?
+
+    /**
+     The vehicle for which the route should be calculated.
+     */
+    public var vehicle: VehicleType?
+
+    /**
+     If `true` a third dimension - the elevation - is included in the result. 
+     
+     IMPORTANT: If enabled you have set `encodePoints` to `false.
+     */
+    public var elevation: Bool?
+
+    /**
+     If the points for the route should be calculated at all printing out only distance and time.
+     */
+    public var calculatePoints: Bool?
+
+    /**
+     Initializes a route options object for routes between the given points.
+
+     - parameter points: An array of `CLLocationCoordinate2D` objects representing coordinates that the route should visit in chronological order. The array must contain at least two coordinates (the source and destination).
+     */
+    public init(points: [CLLocationCoordinate2D]) {
         assert(points.count >= 2, "Specify at least two points.")
         self.points = points
     }
@@ -22,6 +64,7 @@ open class RouteOptions: NSObject {
         let pointQueries = points.map({ URLQueryItem(name: "point", value: "\($0.latitude),\($0.longitude)") })
         params.append(contentsOf: pointQueries)
         params.append(URLQueryItem(name: "type", value: "application/json"))
+        params.append(URLQueryItem(name: "points_encoded", value: String(encodePoints)))
 
         if let locale = self.locale {
             params.append(URLQueryItem(name: "locale", value: locale))
@@ -29,10 +72,6 @@ open class RouteOptions: NSObject {
 
         if let instructions = self.instructions {
             params.append(URLQueryItem(name: "instructions", value: String(instructions)))
-        }
-
-        if let encodePoints = self.encodePoints {
-            params.append(URLQueryItem(name: "points_encoded", value: String(encodePoints)))
         }
 
         if let calculatePoints = self.calculatePoints {
@@ -45,10 +84,6 @@ open class RouteOptions: NSObject {
 
         if let vehicle = self.vehicle {
             params.append(URLQueryItem(name: "vehicle", value: vehicle.rawValue))
-        }
-
-        if let debug = self.debug {
-            params.append(URLQueryItem(name: "debug", value: String(debug)))
         }
 
         if let elevation = self.elevation {
@@ -65,15 +100,36 @@ open class RouteOptions: NSObject {
     }
 }
 
+/**
+ A `FlexibleRouteOptions` object is used to specify options with flexible features when querying the GraphHopper Directions API.
+ */
 open class FlexibleRouteOptions: RouteOptions {
+    /**
+     Which kind of 'best' route calculation you need.
+    */
     public var weighting: RouteWeighting = .fastest
+
+    /**
+     The algorithm to calculate the route.
+     */
     public var algorithm: RouteAlgorithm = .astarbi
 
+    /**
+     If true u-turns are avoided at via-points with regard to the `heading_penalty`.
+     */
     public var passThrough: Bool?
+
+    /**
+     Favour a heading direction for a certain point. Specify either one heading for the start point or as many as there are points. In this case headings are associated by their order to the specific points. Headings are given as north based clockwise angle between 0 and 360 degree.
+     */
     public var heading: [Double]?
+
+    /** 
+     Penalty for omitting a specified heading. The penalty corresponds to the accepted time delay in seconds in comparison to the route without a heading.
+     */
     public var headingPenalty: Int?
 
-    override var params: [URLQueryItem] {
+    internal override var params: [URLQueryItem] {
         var params = super.params
 
         params.append(URLQueryItem(name: "ch.disable", value: "true"))

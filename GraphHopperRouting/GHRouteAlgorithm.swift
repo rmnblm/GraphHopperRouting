@@ -1,5 +1,8 @@
 import Foundation
 
+/**
+ The algorithm to calculate the route.
+ */
 public enum RouteAlgorithm {
     case dijkstrabi
     case dijkstra
