@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version = '1.0.0'
   s.license = 'MIT'
   s.homepage = 'https://github.com/rmnblm/GraphHopperRouting'
-  s.summary = '🔍 The GraphHopper Routing API wrapped in an easy-to-use Swift framework. '
+  s.summary = '🗺 The GraphHopper Routing API wrapped in an easy-to-use Swift framework.'
   s.authors = {
     'rmnblm' => 'rmnblm@gmail.com',
     'iphilgood' => 'phil.schilter@gmail.com'

@@ -18,7 +18,7 @@ pod 'GraphHopperRouting'
 
 Then run the following command:
 
-``` 
+```
 $ pod install
 ```
 
@@ -51,7 +51,7 @@ let points = [
 ]
 ```
 
-Configure the route options 
+Configure the route options
 
 ``` swift
 let options = RouteOptions(points)
@@ -102,4 +102,4 @@ This project is released under the [MIT license](LICENSE).
 
 <img src="images/HSRLogo.png" width="184" />
 
-​The GraphHopper Geocoder Swift Framework is crafted with ​:heart:​ by [@rmnblm](https://github.com/rmnblm) and [@iphilgood](https://github.com/iphilgood) during the Bachelor thesis at [HSR University of Applied Sciences](https://www.hsr.ch) in Rapperswil.
+The GraphHopper Routing Swift Framework is crafted with :heart: by [@rmnblm](https://github.com/rmnblm) and [@iphilgood](https://github.com/iphilgood) during the Bachelor thesis at [HSR University of Applied Sciences](https://www.hsr.ch) in Rapperswil.
