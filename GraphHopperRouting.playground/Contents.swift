@@ -10,9 +10,11 @@ let points = [
 ]
 let options = RouteOptions(points: points)
 options.elevation = true
+options.vehicle = .foot
+
 _ = routing.calculate(options, completionHandler: { (paths, error) in
     if let error = error {
-        print(error)
+        print(error.localizedDescription)
         return
     }
 

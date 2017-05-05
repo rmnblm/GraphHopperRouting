@@ -31,6 +31,7 @@ In order to use the framework, you'll also need a [GraphHopper Access Token](htt
 Setup the `Routing` class
 
 ``` swift
+import CoreLocation
 import GraphHopperRouting
 
 // use this
@@ -55,6 +56,10 @@ Configure the route options
 ``` swift
 let options = RouteOptions(points)
 options.elevation = true
+options.instructions = true
+options.locale = "de-DE"
+options.vehicle = .foot
+options.optimize = true
 ```
 
 ### Flexible route options
@@ -87,7 +92,7 @@ let task = routing.calculate(options, completionHandler: { (paths, error) in
 
 ## More information
 
-For more information, consider the [official documentation](https://graphhopper.com/api/1/docs/routing/) to learn more about the options and the result.
+For more information, consider reading the [official documentation](https://graphhopper.com/api/1/docs/routing/) to learn more about the options and the result.
 
 ## License
 
