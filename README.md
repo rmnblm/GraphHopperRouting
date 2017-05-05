@@ -22,6 +22,8 @@ In order to use the framework, you'll also need a [GraphHopper Access Token](htt
 
 ## Example
 
+### Basics
+
 Setup the `Routing` class
 
 ``` swift
@@ -33,7 +35,9 @@ let routing = Routing(accessToken: "YOUR ACCESS TOKEN")
 let routing = Routing()
 ```
 
-Specifiy multiple points for which the route should be calculated.
+### Route options
+
+Specify multiple points for which the route should be calculated.
 
 ```swift
 let points = [
@@ -49,9 +53,21 @@ let options = RouteOptions(points)
 options.elevation = true
 ```
 
-Make the async request by calling the `calculate(_:completionHandler)` method
+### Flexible route options
 
-``` swift
+Flexible route options are used to specify flexible features when querying the GraphHopper Routing API.
+
+```swift
+let options = FlexibleRouteOptions()
+options.weighting = .shortest
+options.algorithm = .dijkstrabi
+```
+
+### Routing request
+
+Make the async request by calling the `calculate(_:completionHandler)` method and passing the options.
+
+```swift
 let task = routing.calculate(options, completionHandler: { (paths, error) in
     paths?.forEach({ path in
         print(path.time)
@@ -64,6 +80,8 @@ let task = routing.calculate(options, completionHandler: { (paths, error) in
     })
 })
 ```
+
+## More information
 
 For more information, consider the [official documentation](https://graphhopper.com/api/1/docs/routing/) to learn more about the options and the result.
 
