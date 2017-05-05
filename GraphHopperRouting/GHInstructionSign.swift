@@ -1,3 +1,6 @@
+/**
+ Specifies the sign of an instruction to show e.g. for right turn etc.
+ */
 public enum InstructionSign: Int {
     case turnSharpLeft = -3
     case turnLeft = -2

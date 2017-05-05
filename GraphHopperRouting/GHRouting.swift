@@ -4,7 +4,6 @@ public typealias JSONDictionary = [String: Any]
 
 let GHRoutingErrorDomain = "GHRoutingErrorDomain"
 let defaultAccessToken = Bundle.main.object(forInfoDictionaryKey: "GraphHopperAccessToken") as? String
-let defaultApiVersion = "1"
 
 /**
 
@@ -14,16 +13,16 @@ open class Routing: NSObject {
     /**
      A closure (block) to be called when a directions request is complete.
 
-     - parameter paths An array of possible paths
+     - parameter paths: An array of possible paths
         If the request was canceled or there was an error obtaining the routes, this parameter may be `nil`.
-     - parameter error The error that occurred, or `nil` if the paths were obtained successfully.
+     - parameter error: The error that occurred, or `nil` if the paths were obtained successfully.
      */
     public typealias CompletionHandler = (_ paths: [RoutePath]?, _ error: Error?) -> Void
 
     /**
      The shared routing object.
      
-     If this object is used, the GraphHopper Access Token must be specified in the `Info.plist` with the key "GraphHopperAccessToken".
+     If this object is used, the GraphHopper Access Token must be specified in the Info.plist of the application's main bundle with the key `GraphHopperAccessToken`.
      */
     open static let shared = Routing(accessToken: nil)
 
@@ -31,9 +30,11 @@ open class Routing: NSObject {
     internal let baseURL: URL
 
     /**
+     Initializes a new routing object with an optional access token.
      
+     - parameter accessToken: A GraphHopper Access Token. If nil, the access token must be specified in the Info.plist of the application's main bundle with the key `GraphHopperAccessToken`.
      */
-    public init(accessToken: String?, apiVersion: String? = nil) {
+    public init(accessToken: String?) {
         guard let token = accessToken ?? defaultAccessToken else {
             fatalError("You must provide an access token in order to use the GraphHopper Routing API.")
         }
@@ -43,12 +44,14 @@ open class Routing: NSObject {
         var baseURLComponents = URLComponents()
         baseURLComponents.scheme = "https"
         baseURLComponents.host = "graphhopper.com"
-        baseURLComponents.path = "/api/\(apiVersion ?? defaultApiVersion)/route"
+        baseURLComponents.path = "/api/1/route"
         self.baseURL = baseURLComponents.url!
     }
 
     /**
+     Starts an asynchronous session task to calculate the route(s) and delivers the paths in the completion handler.
      
+     - parameter options: A `RouteOptions` object specifying 
      */
     open func calculate(_ options: RouteOptions, completionHandler: @escaping CompletionHandler) -> URLSessionDataTask {
         let url = urlForCalculating(options)
