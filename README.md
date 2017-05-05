@@ -14,11 +14,9 @@ pod 'GraphHopperRouting'
 
 Then run the following command:
 
-``` ruby
+``` 
 $ pod install
 ```
-
-
 
 In order to use the framework, you'll also need a [GraphHopper Access Token](https://graphhopper.com/dashboard/#/api-keys). You can either set your access token in the `Info.plist` (Key is GraphHopperAccessToken) or pass it as an argument to the initializer of the `Routing` class.
 
