@@ -15,8 +15,8 @@ open class BoundingBox {
         }
 
         self.init(
-            northWest: CLLocationCoordinate2D(latitude: degrees[0], longitude: degrees[1]),
-            southEast: CLLocationCoordinate2D(latitude: degrees[2], longitude: degrees[3])
+            northWest: CLLocationCoordinate2D(latitude: degrees[1], longitude: degrees[0]),
+            southEast: CLLocationCoordinate2D(latitude: degrees[3], longitude: degrees[2])
         )
     }
 }

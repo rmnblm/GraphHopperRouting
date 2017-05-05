@@ -1,7 +1,6 @@
 import CoreLocation
 
 open class RoutePath {
-
     fileprivate let json: JSONDictionary
     fileprivate let elevation: Bool
     fileprivate let encoded: Bool
@@ -16,8 +15,8 @@ open class RoutePath {
         self.init(json, elevation: options.elevation, encoded: options.encodePoints)
     }
 
-    open lazy var instructions: [Instruction]? = {
-        return (self.json["instructions"] as? [JSONDictionary])?.flatMap({ Instruction(json: $0) })
+    open lazy var instructions: [Instruction] = {
+        return (self.json["instructions"] as? [JSONDictionary])?.flatMap({ Instruction(json: $0) }) ?? []
     }()
 
     open lazy var bbox: BoundingBox? = {
@@ -35,32 +34,32 @@ open class RoutePath {
         return self.processPoints(jsonKey: "snapped_waypoints")
     }()
 
-    open lazy var time: Int? = {
-        return self.json["time"] as? Int
+    open lazy var time: Int = {
+        return self.json["time"] as? Int ?? 0
     }()
 
-    open lazy var distance: CLLocationDistance? = {
-        return self.json["distance"] as? CLLocationDistance
+    open lazy var distance: CLLocationDistance = {
+        return self.json["distance"] as? CLLocationDistance ?? 0.0
     }()
 
-    open lazy var ascend: CLLocationDistance? = {
-        return self.json["ascend"] as? CLLocationDistance
+    open lazy var ascend: CLLocationDistance = {
+        return self.json["ascend"] as? CLLocationDistance ?? 0.0
     }()
 
-    open lazy var descend: CLLocationDistance? = {
-        return self.json["descend"] as? CLLocationDistance
+    open lazy var descend: CLLocationDistance = {
+        return self.json["descend"] as? CLLocationDistance ?? 0.0
     }()
 
-    open lazy var pointsOrder: [Int]? = {
-        return self.json["points_order"] as? [Int]
+    open lazy var pointsOrder: [Int] = {
+        return self.json["points_order"] as? [Int] ?? []
     }()
 
-    open lazy var transfers: Int? = {
-        return self.json["transfers"] as? Int
+    open lazy var transfers: Int = {
+        return self.json["transfers"] as? Int ?? 0
     }()
 
-    open lazy var weight: Double? = {
-        return self.json["weight"] as? Double
+    open lazy var weight: Double = {
+        return self.json["weight"] as? Double ?? Double.infinity
     }()
 }
 

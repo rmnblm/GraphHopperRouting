@@ -1,20 +1,6 @@
 import CoreLocation
 
-public enum VehicleType: String {
-    case car = "car"
-    case motorcycle = "motorcycle"
-    case smalltruck = "small_truck"
-    case bus = "bus"
-    case truck = "truck"
-    case foot = "foot"
-    case hike = "hike"
-    case bike = "bike"
-    case mountainbike = "mtb"
-    case racingbike = "racing bike"
-}
-
 open class RouteOptions: NSObject {
-
     public let points: [CLLocationCoordinate2D]
     public var locale = Locale.current.languageCode ?? "en"
     public var optimize = false
@@ -53,5 +39,37 @@ open class RouteOptions: NSObject {
         return (json["paths"] as? [JSONDictionary])?.flatMap({ jsonPath in
             return RoutePath(json: jsonPath, withOptions: self)
         })
+    }
+}
+
+open class FlexibleRouteOptions: RouteOptions {
+    public var weighting: RouteWeighting = .fastest
+    public var algorithm: RouteAlgorithm = .astarbi
+
+    public var passThrough: Bool?
+    public var heading: [Double]?
+    public var headingPenalty: Int?
+
+    override var params: [URLQueryItem] {
+        var params = super.params
+
+        params.append(URLQueryItem(name: "ch.disable", value: "true"))
+        params.append(URLQueryItem(name: "weighting", value: weighting.rawValue))
+
+        if let passThrough = self.passThrough {
+            params.append(URLQueryItem(name: "pass_through", value: String(passThrough)))
+        }
+
+        if let heading = self.heading {
+            params.append(URLQueryItem(name: "heading", value: heading.map({ String($0) }).joined(separator: ",")))
+        }
+
+        if let headingPenalty = self.headingPenalty {
+            params.append(URLQueryItem(name: "heading_penalty", value: String(headingPenalty)))
+        }
+
+        params.append(contentsOf: algorithm.asParams())
+
+        return params
     }
 }

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		307032821EBC7CD700471C9B /* GHRouteAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307032811EBC7CD700471C9B /* GHRouteAlgorithm.swift */; };
+		307032841EBC7D0300471C9B /* GHRouteWeighting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307032831EBC7D0200471C9B /* GHRouteWeighting.swift */; };
+		307032861EBC7D2100471C9B /* GHVehicleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307032851EBC7D2100471C9B /* GHVehicleType.swift */; };
+		307032881EBC801000471C9B /* GHInstructionSign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307032871EBC801000471C9B /* GHInstructionSign.swift */; };
 		30B2C35E1EBC587F0040F4BD /* GHBoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B2C35D1EBC587F0040F4BD /* GHBoundingBox.swift */; };
 		30B2C3621EBC62370040F4BD /* GHInstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B2C3611EBC62370040F4BD /* GHInstruction.swift */; };
 		30B2C3641EBC692C0040F4BD /* CLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B2C3631EBC692C0040F4BD /* CLExtensions.swift */; };
@@ -30,6 +34,10 @@
 
 /* Begin PBXFileReference section */
 		3039D3BA1EB75B7E00B8703F /* GraphHopperRouting.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = GraphHopperRouting.playground; sourceTree = "<group>"; };
+		307032811EBC7CD700471C9B /* GHRouteAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHRouteAlgorithm.swift; sourceTree = "<group>"; };
+		307032831EBC7D0200471C9B /* GHRouteWeighting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHRouteWeighting.swift; sourceTree = "<group>"; };
+		307032851EBC7D2100471C9B /* GHVehicleType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHVehicleType.swift; sourceTree = "<group>"; };
+		307032871EBC801000471C9B /* GHInstructionSign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHInstructionSign.swift; sourceTree = "<group>"; };
 		30B2C35D1EBC587F0040F4BD /* GHBoundingBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHBoundingBox.swift; sourceTree = "<group>"; };
 		30B2C3611EBC62370040F4BD /* GHInstruction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHInstruction.swift; sourceTree = "<group>"; };
 		30B2C3631EBC692C0040F4BD /* CLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLExtensions.swift; sourceTree = "<group>"; };
@@ -88,10 +96,14 @@
 				30DEA4861E94064100D2A137 /* Info.plist */,
 				30DEA49C1E94065600D2A137 /* GHRouting.swift */,
 				30DEA4A31E941E2400D2A137 /* GHRouteOptions.swift */,
-				30BDE4511E9442AB00C0DB04 /* GHDecoder.swift */,
+				307032811EBC7CD700471C9B /* GHRouteAlgorithm.swift */,
+				307032831EBC7D0200471C9B /* GHRouteWeighting.swift */,
+				307032851EBC7D2100471C9B /* GHVehicleType.swift */,
 				30DEA49F1E94134D00D2A137 /* GHRoutePath.swift */,
-				30B2C35D1EBC587F0040F4BD /* GHBoundingBox.swift */,
 				30B2C3611EBC62370040F4BD /* GHInstruction.swift */,
+				307032871EBC801000471C9B /* GHInstructionSign.swift */,
+				30BDE4511E9442AB00C0DB04 /* GHDecoder.swift */,
+				30B2C35D1EBC587F0040F4BD /* GHBoundingBox.swift */,
 				30B2C3631EBC692C0040F4BD /* CLExtensions.swift */,
 			);
 			path = GraphHopperRouting;
@@ -211,9 +223,13 @@
 				30DEA4A01E94134D00D2A137 /* GHRoutePath.swift in Sources */,
 				30B2C35E1EBC587F0040F4BD /* GHBoundingBox.swift in Sources */,
 				30DEA4A41E941E2400D2A137 /* GHRouteOptions.swift in Sources */,
+				307032861EBC7D2100471C9B /* GHVehicleType.swift in Sources */,
+				307032881EBC801000471C9B /* GHInstructionSign.swift in Sources */,
+				307032841EBC7D0300471C9B /* GHRouteWeighting.swift in Sources */,
 				30B2C3641EBC692C0040F4BD /* CLExtensions.swift in Sources */,
 				30BDE4521E9442AB00C0DB04 /* GHDecoder.swift in Sources */,
 				30B2C3621EBC62370040F4BD /* GHInstruction.swift in Sources */,
+				307032821EBC7CD700471C9B /* GHRouteAlgorithm.swift in Sources */,
 				30DEA49D1E94065600D2A137 /* GHRouting.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
