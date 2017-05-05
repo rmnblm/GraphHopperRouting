@@ -12,7 +12,7 @@ let defaultAccessToken = Bundle.main.object(forInfoDictionaryKey: "GraphHopperAc
 open class Routing: NSObject {
 
     /**
-     A closure (block) to be called when a directions request is complete.
+     A closure (block) to be called when a routing request is complete.
 
      - parameter paths: An array of possible paths
         If the request was canceled or there was an error obtaining the routes, this parameter may be `nil`.
@@ -51,8 +51,9 @@ open class Routing: NSObject {
 
     /**
      Starts an asynchronous session task to calculate the route(s) and delivers the paths in the completion handler.
-     
-     - parameter options: A `RouteOptions` object specifying 
+
+     - parameter options: A `RouteOptions` object specifying the options to consider when calling the GraphHopper Routing API.
+     - parameter completionHandler: The closure (block) to call with the resulting paths.
      */
     open func calculate(_ options: RouteOptions, completionHandler: @escaping CompletionHandler) -> URLSessionDataTask {
         let url = urlForCalculating(options)
@@ -143,7 +144,7 @@ open class Routing: NSObject {
     }
 }
 
-extension HTTPURLResponse {
+internal extension HTTPURLResponse {
     var creditLimit: Int? {
         return allHeaderFields["X-RateLimit-Limit"] as? Int
     }

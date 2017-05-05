@@ -1,26 +1,26 @@
 import CoreLocation
 
 /**
- A `BoundingBox` object is an area defined by two coordinates, north-west and south-east.
+ A `BoundingBox` object is an area defined by two coordinates, top-left and bottom-right.
  */
 open class BoundingBox {
-    open let northWest: CLLocationCoordinate2D
-    open let southEast: CLLocationCoordinate2D
+    open let topLeft: CLLocationCoordinate2D
+    open let bottomRight: CLLocationCoordinate2D
 
     /**
-     Initializes a new bounding box object with the two coordinates, north-west and south-east.
+     Initializes a new bounding box object with the two coordinates, top-left and bottom-right.
 
-     - paramter northWest: The north-west coordinate of the bbox.
-     - paramter southEast: The south-east coordinate of the bbox.
+     - paramter northWest: The top-left coordinate of the bbox.
+     - paramter southEast: The bottom-right coordinate of the bbox.
      */
-    internal init(northWest: CLLocationCoordinate2D, southEast: CLLocationCoordinate2D) {
-        self.northWest = northWest
-        self.southEast = southEast
+    internal init(topLeft: CLLocationCoordinate2D, bottomRight: CLLocationCoordinate2D) {
+        self.topLeft = topLeft
+        self.bottomRight = bottomRight
     }
 
     /**
      Initializes a new bounding box object.
-     
+
      - paramter degrees: A array containing excactly four values of type `CLLocationDegrees` in the order `[minLongitude, minLatitude, maxLongitude, maxLatitude]`
      */
     public convenience init?(degrees: [CLLocationDegrees]) {
@@ -29,8 +29,8 @@ open class BoundingBox {
         }
 
         self.init(
-            northWest: CLLocationCoordinate2D(latitude: degrees[1], longitude: degrees[0]),
-            southEast: CLLocationCoordinate2D(latitude: degrees[3], longitude: degrees[2])
+            topLeft: CLLocationCoordinate2D(latitude: degrees[1], longitude: degrees[0]),
+            bottomRight: CLLocationCoordinate2D(latitude: degrees[3], longitude: degrees[2])
         )
     }
 }

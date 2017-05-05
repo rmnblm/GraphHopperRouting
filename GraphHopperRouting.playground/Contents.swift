@@ -16,7 +16,6 @@ _ = routing.calculate(options, completionHandler: { (paths, error) in
         return
     }
 
-    print(paths)
     paths?.forEach({
         $0.points.forEach({ print("\($0.coordinate.latitude) \($0.coordinate.longitude) \($0.altitude)") })
         print($0.time)

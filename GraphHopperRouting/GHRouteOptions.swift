@@ -1,7 +1,7 @@
 import CoreLocation
 
 /**
- A `RouteOptions` object is used to specify options when querying the GraphHopper Directions API.
+ A `RouteOptions` object is used to specify user-defined options when querying the GraphHopper Routing API.
  */
 open class RouteOptions: NSObject {
     /**
@@ -101,7 +101,7 @@ open class RouteOptions: NSObject {
 }
 
 /**
- A `FlexibleRouteOptions` object is used to specify options with flexible features when querying the GraphHopper Directions API.
+ A `FlexibleRouteOptions` object is used to specify options with flexible features when querying the GraphHopper Routing API.
  */
 open class FlexibleRouteOptions: RouteOptions {
     /**
