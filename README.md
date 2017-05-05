@@ -1,4 +1,8 @@
 # GraphHopperRouting
+[![](http://img.shields.io/badge/ios-8.0+-FC3159.svg)]()
+[![](http://img.shields.io/badge/swift-3.0+-FD9426.svg)]()
+[![](https://img.shields.io/badge/cocoapods-compatible-53D769.svg)](https://github.com/cocoapods/cocoapods)
+[![](https://img.shields.io/badge/license-MIT-lightgrey.svg)](http://mit-license.org)
 
 🗺 The GraphHopper Routing API wrapped in an easy-to-use Swift framework.
 
