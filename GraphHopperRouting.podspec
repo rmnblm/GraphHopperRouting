@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'GraphHopperRouting'
-  s.version = '1.0.0'
+  s.version = '1.0.1'
   s.license = 'MIT'
   s.homepage = 'https://github.com/rmnblm/GraphHopperRouting'
   s.summary = '🗺 The GraphHopper Routing API wrapped in an easy-to-use Swift framework.'
