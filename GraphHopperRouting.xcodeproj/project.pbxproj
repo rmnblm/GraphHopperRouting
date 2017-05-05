@@ -16,7 +16,7 @@
 		30B2C3641EBC692C0040F4BD /* CLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B2C3631EBC692C0040F4BD /* CLExtensions.swift */; };
 		30BDE4521E9442AB00C0DB04 /* GHDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BDE4511E9442AB00C0DB04 /* GHDecoder.swift */; };
 		30DEA48C1E94064100D2A137 /* GraphHopperRouting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DEA4821E94064100D2A137 /* GraphHopperRouting.framework */; };
-		30DEA4911E94064100D2A137 /* GraphHopperRoutingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DEA4901E94064100D2A137 /* GraphHopperRoutingTests.swift */; };
+		30DEA4911E94064100D2A137 /* RoutingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DEA4901E94064100D2A137 /* RoutingTests.swift */; };
 		30DEA49D1E94065600D2A137 /* GHRouting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DEA49C1E94065600D2A137 /* GHRouting.swift */; };
 		30DEA4A01E94134D00D2A137 /* GHRoutePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DEA49F1E94134D00D2A137 /* GHRoutePath.swift */; };
 		30DEA4A41E941E2400D2A137 /* GHRouteOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DEA4A31E941E2400D2A137 /* GHRouteOptions.swift */; };
@@ -45,7 +45,7 @@
 		30DEA4821E94064100D2A137 /* GraphHopperRouting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GraphHopperRouting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		30DEA4861E94064100D2A137 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30DEA48B1E94064100D2A137 /* GraphHopperRoutingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GraphHopperRoutingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		30DEA4901E94064100D2A137 /* GraphHopperRoutingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphHopperRoutingTests.swift; sourceTree = "<group>"; };
+		30DEA4901E94064100D2A137 /* RoutingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingTests.swift; sourceTree = "<group>"; };
 		30DEA4921E94064100D2A137 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30DEA49C1E94065600D2A137 /* GHRouting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHRouting.swift; sourceTree = "<group>"; };
 		30DEA49F1E94134D00D2A137 /* GHRoutePath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHRoutePath.swift; sourceTree = "<group>"; };
@@ -112,7 +112,7 @@
 		30DEA48F1E94064100D2A137 /* GraphHopperRoutingTests */ = {
 			isa = PBXGroup;
 			children = (
-				30DEA4901E94064100D2A137 /* GraphHopperRoutingTests.swift */,
+				30DEA4901E94064100D2A137 /* RoutingTests.swift */,
 				30DEA4921E94064100D2A137 /* Info.plist */,
 			);
 			path = GraphHopperRoutingTests;
@@ -238,7 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30DEA4911E94064100D2A137 /* GraphHopperRoutingTests.swift in Sources */,
+				30DEA4911E94064100D2A137 /* RoutingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
