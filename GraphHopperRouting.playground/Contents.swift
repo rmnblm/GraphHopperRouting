@@ -11,6 +11,12 @@ let points = [
 let options = RouteOptions(points)
 options.elevation = true
 _ = routing.calculate(options, completionHandler: { (paths, error) in
+    if let error = error {
+        print(error)
+        return
+    }
+
+    print(paths)
     paths?.forEach({
         $0.points.forEach({ print("\($0.coordinate.latitude) \($0.coordinate.longitude) \($0.altitude)") })
         print($0.time)
