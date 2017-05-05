@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3053826A1E9BC33600CDC79A /* GHRoutePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305382691E9BC33600CDC79A /* GHRoutePoint.swift */; };
+		30B2C35E1EBC587F0040F4BD /* GHBoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B2C35D1EBC587F0040F4BD /* GHBoundingBox.swift */; };
+		30B2C3621EBC62370040F4BD /* GHInstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B2C3611EBC62370040F4BD /* GHInstruction.swift */; };
+		30B2C3641EBC692C0040F4BD /* CLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B2C3631EBC692C0040F4BD /* CLExtensions.swift */; };
 		30BDE4521E9442AB00C0DB04 /* GHDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BDE4511E9442AB00C0DB04 /* GHDecoder.swift */; };
 		30DEA48C1E94064100D2A137 /* GraphHopperRouting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DEA4821E94064100D2A137 /* GraphHopperRouting.framework */; };
 		30DEA4911E94064100D2A137 /* GraphHopperRoutingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DEA4901E94064100D2A137 /* GraphHopperRoutingTests.swift */; };
@@ -28,7 +30,9 @@
 
 /* Begin PBXFileReference section */
 		3039D3BA1EB75B7E00B8703F /* GraphHopperRouting.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = GraphHopperRouting.playground; sourceTree = "<group>"; };
-		305382691E9BC33600CDC79A /* GHRoutePoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHRoutePoint.swift; sourceTree = "<group>"; };
+		30B2C35D1EBC587F0040F4BD /* GHBoundingBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHBoundingBox.swift; sourceTree = "<group>"; };
+		30B2C3611EBC62370040F4BD /* GHInstruction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHInstruction.swift; sourceTree = "<group>"; };
+		30B2C3631EBC692C0040F4BD /* CLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLExtensions.swift; sourceTree = "<group>"; };
 		30BDE4511E9442AB00C0DB04 /* GHDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHDecoder.swift; sourceTree = "<group>"; };
 		30DEA4821E94064100D2A137 /* GraphHopperRouting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GraphHopperRouting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		30DEA4861E94064100D2A137 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -86,7 +90,9 @@
 				30DEA4A31E941E2400D2A137 /* GHRouteOptions.swift */,
 				30BDE4511E9442AB00C0DB04 /* GHDecoder.swift */,
 				30DEA49F1E94134D00D2A137 /* GHRoutePath.swift */,
-				305382691E9BC33600CDC79A /* GHRoutePoint.swift */,
+				30B2C35D1EBC587F0040F4BD /* GHBoundingBox.swift */,
+				30B2C3611EBC62370040F4BD /* GHInstruction.swift */,
+				30B2C3631EBC692C0040F4BD /* CLExtensions.swift */,
 			);
 			path = GraphHopperRouting;
 			sourceTree = "<group>";
@@ -203,9 +209,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				30DEA4A01E94134D00D2A137 /* GHRoutePath.swift in Sources */,
-				3053826A1E9BC33600CDC79A /* GHRoutePoint.swift in Sources */,
+				30B2C35E1EBC587F0040F4BD /* GHBoundingBox.swift in Sources */,
 				30DEA4A41E941E2400D2A137 /* GHRouteOptions.swift in Sources */,
+				30B2C3641EBC692C0040F4BD /* CLExtensions.swift in Sources */,
 				30BDE4521E9442AB00C0DB04 /* GHDecoder.swift in Sources */,
+				30B2C3621EBC62370040F4BD /* GHInstruction.swift in Sources */,
 				30DEA49D1E94065600D2A137 /* GHRouting.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

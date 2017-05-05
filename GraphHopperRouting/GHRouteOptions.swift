@@ -1,6 +1,6 @@
 import CoreLocation
 
-public enum RouteVehicleType: String {
+public enum VehicleType: String {
     case car = "car"
     case motorcycle = "motorcycle"
     case smalltruck = "small_truck"
@@ -13,25 +13,19 @@ public enum RouteVehicleType: String {
     case racingbike = "racing bike"
 }
 
-public enum RouteResultType: String {
-    case json = "application/json"
-    case gpx = "application/gpx+xml"
-}
-
 open class RouteOptions: NSObject {
 
-    public let points: [RoutePoint]
-    public var locale = "en"
+    public let points: [CLLocationCoordinate2D]
+    public var locale = Locale.current.languageCode ?? "en"
     public var optimize = false
     public var instructions = true
-    public var vehicle: RouteVehicleType = .car
+    public var vehicle: VehicleType = .car
     public var elevation = false
     public var encodePoints = true
     public var calculatePoints = true
     public var debug = false
-    public var type: RouteResultType = .json
 
-    public init(_ points: [RoutePoint]) {
+    public init(_ points: [CLLocationCoordinate2D]) {
         assert(points.count >= 2, "Specify at least two points.")
         self.points = points
     }
@@ -39,7 +33,7 @@ open class RouteOptions: NSObject {
     internal var params: [URLQueryItem] {
         var params: [URLQueryItem] = [
             URLQueryItem(name: "locale", value: locale),
-            URLQueryItem(name: "type", value: type.rawValue),
+            URLQueryItem(name: "type", value: "application/json"),
             URLQueryItem(name: "instructions", value: String(instructions)),
             URLQueryItem(name: "points_encoded", value: String(encodePoints)),
             URLQueryItem(name: "calc_points", value: String(calculatePoints)),
