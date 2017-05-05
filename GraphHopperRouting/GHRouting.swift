@@ -2,18 +2,9 @@ import Foundation
 
 public typealias JSONDictionary = [String: Any]
 
+let GHRoutingErrorDomain = "GHRoutingErrorDomain"
 let defaultAccessToken = Bundle.main.object(forInfoDictionaryKey: "GraphHopperAccessToken") as? String
 let defaultApiVersion = "1"
-
-public enum NetworkError: Error {
-    case InvalidRequest
-    case Authentication
-    case InvalidParameters
-    case LimitExceeded
-    case InternalServer
-    case UnsupportedVehicles
-    case Unknown
-}
 
 /**
 
@@ -77,35 +68,26 @@ open class Routing: NSObject {
         errorHandler: @escaping (_ error: Error) -> Void) -> URLSessionDataTask {
 
         return URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-            if let error = error {
-                DispatchQueue.main.async {
-                    errorHandler(error)
-                }
-                return
-            }
-
-            guard let statusCode = (response as? HTTPURLResponse)?.statusCode else {
-                assert(false, "Status code not available")
-                return
-            }
-
-            if !(200...299 ~= statusCode) {
-                DispatchQueue.main.async {
-                    errorHandler(self.parseError(fromStatusCode: statusCode))
-                }
-                return
-            }
-
             guard let data = data, response?.mimeType == "application/json" else {
-                assert(false, "Invalid data")
+                assert(false, "Invalid data.")
                 return
             }
 
             var json: JSONDictionary = [:]
+
             do {
                 json = try JSONSerialization.jsonObject(with: data, options: []) as! JSONDictionary
             } catch {
-                assert(false, "Invalid data")
+                assert(false, "Unable to parse JSON.")
+            }
+
+            let apiMessage = json["message"] as? String
+            guard error == nil && apiMessage == nil else {
+                let apiError = Routing.descriptiveError(json, response: response, underlyingerror: error as NSError?)
+                DispatchQueue.main.async {
+                    errorHandler(apiError)
+                }
+                return
             }
 
             DispatchQueue.main.async {
@@ -124,15 +106,69 @@ open class Routing: NSObject {
         return components.url!
     }
 
-    private func parseError(fromStatusCode code: Int) -> Error {
-        switch code {
-        case 400: return NetworkError.InvalidRequest
-        case 401: return NetworkError.Authentication
-        case 413: return NetworkError.InvalidParameters
-        case 429: return NetworkError.LimitExceeded
-        case 500: return NetworkError.InternalServer
-        case 501: return NetworkError.UnsupportedVehicles
-        default: return NetworkError.Unknown
+    static func descriptiveError(_ json: JSONDictionary, response: URLResponse?, underlyingerror error: NSError?) -> NSError {
+        var userInfo = error?.userInfo ?? [:]
+        if let response = response as? HTTPURLResponse {
+            var failureReason: String? = nil
+            var recoverySuggestion: String? = nil
+
+            switch response.statusCode {
+            case 429:
+                if let creditLimit = response.creditLimit {
+                    let formattedCount = NumberFormatter.localizedString(from: creditLimit as NSNumber, number: .decimal)
+                    failureReason = "More than \(formattedCount) requests have been made with this access token."
+                }
+                if let timeUntilReset = response.timeUntilReset {
+                    let intervalFormatter = DateComponentsFormatter()
+                    intervalFormatter.unitsStyle = .full
+                    let formattedSeconds = intervalFormatter.string(from: timeUntilReset) ?? "\(timeUntilReset) seconds"
+                    recoverySuggestion = "Wait \(formattedSeconds) before retrying."
+                }
+            default:
+                failureReason = json["message"] as? String
+            }
+            userInfo[NSLocalizedFailureReasonErrorKey] = failureReason ?? userInfo[NSLocalizedFailureReasonErrorKey] ?? HTTPURLResponse.localizedString(forStatusCode: error?.code ?? -1)
+            userInfo[NSLocalizedRecoverySuggestionErrorKey] = recoverySuggestion ?? userInfo[NSLocalizedRecoverySuggestionErrorKey]
         }
+
+        if let error = error {
+            userInfo[NSUnderlyingErrorKey] = error
+        }
+
+        return NSError(domain: error?.domain ?? GHRoutingErrorDomain, code: error?.code ?? -1, userInfo: userInfo)
+    }
+}
+
+extension HTTPURLResponse {
+    var creditLimit: UInt? {
+        guard let limit = allHeaderFields["X-RateLimit-Limit"] as? String else {
+            return nil
+        }
+
+        return UInt(limit)
+    }
+
+    var remainingCredits: UInt? {
+        guard let credits = allHeaderFields["X-RateLimit-Remaining"] as? String else {
+            return nil
+        }
+
+        return UInt(credits)
+    }
+
+    var timeUntilReset: TimeInterval? {
+        guard let time = allHeaderFields["X-RateLimit-Reset"] as? String else {
+            return nil
+        }
+
+        return TimeInterval(time)
+    }
+
+    var creditCosts: Double? {
+        guard let costs = allHeaderFields["X-RateLimit-Credits"] as? String else {
+            return nil
+        }
+        
+        return Double(costs)
     }
 }
