@@ -1,7 +1,7 @@
 import CoreLocation
 
 /**
-
+ An `Instruction` object contains all necessary information to explain how to perform a certain part of a `RoutePath`.
  */
 open class Instruction {
 

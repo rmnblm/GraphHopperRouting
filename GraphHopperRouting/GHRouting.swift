@@ -6,6 +6,7 @@ let GHRoutingErrorDomain = "GHRoutingErrorDomain"
 let defaultAccessToken = Bundle.main.object(forInfoDictionaryKey: "GraphHopperAccessToken") as? String
 
 /**
+ A `Routing` object is used to calculate one or more routes between given waypoints. The routing object passes your request to the [GraphHopper Routing API](https://graphhopper.com/api/1/docs/routing/) and asynchronously returns the requested information to a completion handler that you provide. 
 
  */
 open class Routing: NSObject {
