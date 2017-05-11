@@ -73,21 +73,17 @@ open class Routing: NSObject {
         errorHandler: @escaping (_ error: Error) -> Void) -> URLSessionDataTask {
 
         return URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-            guard let data = data, response?.mimeType == "application/json" else {
-                assert(false, "Invalid data.")
-                return
-            }
-
             var json: JSONDictionary = [:]
-
-            do {
-                json = try JSONSerialization.jsonObject(with: data, options: []) as! JSONDictionary
-            } catch {
-                assert(false, "Unable to parse JSON.")
+            if let data = data, response?.mimeType == "application/json" {
+                do {
+                  json = try JSONSerialization.jsonObject(with: data, options: []) as! JSONDictionary
+                } catch {
+                  assert(false, "Unable to parse JSON.")
+                }
             }
 
             let apiMessage = json["message"] as? String
-            guard error == nil && apiMessage == nil else {
+            guard data != nil && error == nil && apiMessage == nil else {
                 let apiError = Routing.descriptiveError(json, response: response, underlyingerror: error as NSError?)
                 DispatchQueue.main.async {
                     errorHandler(apiError)
