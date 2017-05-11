@@ -36,7 +36,7 @@ class RoutingTests: XCTestCase {
 
         let resultError = Routing.descriptiveError(json, response: response, underlyingerror: error)
 
-        XCTAssertEqual(resultError.localizedFailureReason!, "More than 300 requests have been made with this access token.")
-        XCTAssertEqual(resultError.localizedRecoverySuggestion!, "Wait 5 minutes before retrying.")
+        XCTAssertEqual(resultError.localizedFailureReason, "More than 300 requests have been made with this access token.")
+        XCTAssertEqual(resultError.localizedRecoverySuggestion, "Wait 5 minutes before retrying.")
     }
 }
