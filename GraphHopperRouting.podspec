@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   }
   s.source = {
     git: 'https://github.com/rmnblm/GraphHopperRouting.git',
-    tag: s.version
+    tag: "v#{s.version}"
   }
   s.ios.deployment_target = '8.0'
   s.source_files = 'GraphHopperRouting/*.swift'
