@@ -4,8 +4,8 @@ import CoreLocation
  A `BoundingBox` object is an area defined by two coordinates, top-left and bottom-right.
  */
 open class BoundingBox {
-    open let topLeft: CLLocationCoordinate2D
-    open let bottomRight: CLLocationCoordinate2D
+    public let topLeft: CLLocationCoordinate2D
+    public let bottomRight: CLLocationCoordinate2D
 
     /**
      Initializes a new bounding box object with the two coordinates, top-left and bottom-right.
