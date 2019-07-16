@@ -35,7 +35,7 @@ open class RoutePath {
      Contains information about the instructions for this route. The last instruction is always the Finish instruction and takes 0ms and 0meter.
      */
     open lazy var instructions: [Instruction] = {
-        return (self.json["instructions"] as? [JSONDictionary])?.flatMap({ Instruction(json: $0) }) ?? []
+        return (self.json["instructions"] as? [JSONDictionary])?.compactMap({ Instruction(json: $0) }) ?? []
     }()
 
     /**

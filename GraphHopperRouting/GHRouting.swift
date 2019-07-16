@@ -25,7 +25,7 @@ open class Routing: NSObject {
      
      If this object is used, the GraphHopper Access Token must be specified in the Info.plist of the application's main bundle with the key `GraphHopperAccessToken`.
      */
-    open static let shared = Routing(accessToken: nil)
+    public static let shared = Routing(accessToken: nil)
 
     internal let accessToken: String
     internal let baseURL: URL

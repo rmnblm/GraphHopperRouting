@@ -94,7 +94,7 @@ open class RouteOptions: NSObject {
     }
 
     internal func response(_ json: JSONDictionary) -> ([RoutePath]?) {
-        return (json["paths"] as? [JSONDictionary])?.flatMap({ jsonPath in
+        return (json["paths"] as? [JSONDictionary])?.compactMap({ jsonPath in
             return RoutePath(json: jsonPath, withOptions: self)
         })
     }
